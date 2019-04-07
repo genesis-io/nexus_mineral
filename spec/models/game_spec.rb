@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Game, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject(:game) { build(:game) }
+
+  it { is_expected.to be_an(ApplicationRecord) }
+  it { is_expected.to belong_to(:winner) }
+  it { is_expected.to belong_to(:loser) }
 end

@@ -16,18 +16,19 @@ ActiveRecord::Schema.define(version: 2019_04_05_100423) do
   enable_extension "plpgsql"
 
   create_table "games", force: :cascade do |t|
-    t.integer "winner"
-    t.integer "loser"
-    t.time "time"
+    t.integer "winner_id", null: false
+    t.integer "loser_id", null: false
+    t.integer "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["winner", "loser"], name: "index_games_on_winner_and_loser"
+    t.index ["loser_id"], name: "index_games_on_loser_id"
+    t.index ["winner_id"], name: "index_games_on_winner_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email"
-    t.string "password"
-    t.string "username"
+    t.string "email", null: false
+    t.string "password", null: false
+    t.string "username", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
