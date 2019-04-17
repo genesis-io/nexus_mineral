@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_11_070841) do
+ActiveRecord::Schema.define(version: 2019_04_13_075204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2019_04_11_070841) do
     t.string "content", null: false
     t.float "rating"
     t.string "starter_code"
-    t.integer "creator_id"
+    t.integer "creator_id", null: false
     t.index ["creator_id"], name: "index_challenges_on_creator_id"
   end
 
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2019_04_11_070841) do
 
   create_table "test_cases", force: :cascade do |t|
     t.string "content", null: false
-    t.integer "challenge_id"
+    t.integer "challenge_id", null: false
     t.index ["challenge_id"], name: "index_test_cases_on_challenge_id"
   end
 
