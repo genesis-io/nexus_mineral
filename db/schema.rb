@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_03_180734) do
+ActiveRecord::Schema.define(version: 2019_05_03_224850) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_05_03_180734) do
     t.string "starter_code"
     t.integer "creator_id", null: false
     t.integer "par"
+    t.string "type"
     t.index ["creator_id"], name: "index_challenges_on_creator_id"
   end
 
