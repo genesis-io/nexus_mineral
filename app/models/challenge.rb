@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Challenge < ApplicationRecord
   include ActiveRecord::Sanitization::ClassMethods
 
