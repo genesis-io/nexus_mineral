@@ -2,7 +2,7 @@
 class Challenge < ApplicationRecord
   include ActiveRecord::Sanitization::ClassMethods
 
-  has_many :test_cases, class_name: 'TestCase'
+  has_many :test_cases
   belongs_to :creator, class_name: 'User', foreign_key: :creator_id
 
   validates :content, presence: true

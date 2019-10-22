@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe "users#create", type: :request do
@@ -8,7 +10,9 @@ RSpec.describe "users#create", type: :request do
   describe 'basic create' do
     let(:params) do
       {
-        # ... your attrs here
+        email: 'nexus_mineral@test.com',
+        password: 'nexus_mineral_password',
+        username: 'nexus_mineral'
       }
     end
     let(:payload) do

@@ -10,11 +10,12 @@ require "action_mailer/railtie"
 # require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
-Bundler.require(*Rails.groups)
+Bundler.require(*Rails.groups) if defined?(Bundler)
 
 module NexusMineral
   class Application < Rails::Application
+    config.time_zone = 'UTC'
+    config.debug_exception_response_format = :api
     config.load_defaults 5.2
-    config.api_only = true
   end
 end

@@ -1,63 +1,70 @@
 require 'rails_helper'
 
-RSpec.describe UserResource, type: :resource do
+RSpec.describe GameResource, type: :resource do
+  let(:winner) { create(:user) }
+  let(:loser) { create(:user) }
+
   describe 'creating' do
     let(:payload) do
       {
         data: {
-          type: 'users',
-          attributes: attributes_for(:user)
+          type: 'games',
+          attributes: {
+            time: 100,
+            winner_id: winner.id,
+            loser_id: loser.id
+          }
         }
       }
     end
 
     let(:instance) do
-      UserResource.build(payload)
+      GameResource.build(payload)
     end
 
     it 'works' do
       expect {
         expect(instance.save).to eq(true), instance.errors.full_messages.to_sentence
-      }.to change { User.count }.by(1)
+      }.to change { Game.count }.by(1)
     end
   end
 
   describe 'updating' do
-    let!(:user) { create(:user) }
+    let!(:game) { create(:game) }
 
     let(:payload) do
       {
         data: {
-          id: user.id.to_s,
-          type: 'users',
+          id: game.id.to_s,
+          type: 'games',
           attributes: { } # Todo!
         }
       }
     end
 
     let(:instance) do
-      UserResource.find(payload)
+      GameResource.find(payload)
     end
 
     xit 'works (add some attributes and enable this spec)' do
       expect {
         expect(instance.update_attributes).to eq(true)
-      }.to change { user.reload.updated_at }
-      # .and change { user.foo }.to('bar') <- example
+      }.to change { game.reload.updated_at }
+      # .and change { game.foo }.to('bar') <- example
     end
   end
 
   describe 'destroying' do
-    let!(:user) { create(:user) }
+    let!(:game) { create(:game) }
 
     let(:instance) do
-      UserResource.find(id: user.id)
+      GameResource.find(id: game.id)
     end
 
     it 'works' do
       expect {
         expect(instance.destroy).to eq(true)
-      }.to change { User.count }.by(-1)
+      }.to change { Game.count }.by(-1)
     end
   end
 end

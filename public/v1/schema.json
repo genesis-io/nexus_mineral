@@ -1,0 +1,541 @@
+{
+  "resources": [
+    {
+      "name": "ChallengeResource",
+      "type": "challenges",
+      "description": null,
+      "attributes": {
+        "id": {
+          "type": "integer_id",
+          "readable": true,
+          "writable": true,
+          "description": null
+        },
+        "creator_id": {
+          "type": "integer",
+          "readable": true,
+          "writable": true,
+          "description": null
+        },
+        "content": {
+          "type": "string",
+          "readable": true,
+          "writable": true,
+          "description": null
+        },
+        "rating": {
+          "type": "float",
+          "readable": true,
+          "writable": true,
+          "description": null
+        },
+        "starter_code": {
+          "type": "string",
+          "readable": true,
+          "writable": true,
+          "description": null
+        },
+        "par": {
+          "type": "integer",
+          "readable": true,
+          "writable": true,
+          "description": null
+        },
+        "type": {
+          "type": "string",
+          "readable": true,
+          "writable": true,
+          "description": null
+        }
+      },
+      "extra_attributes": {
+      },
+      "sorts": {
+        "id": {
+        },
+        "creator_id": {
+        },
+        "content": {
+        },
+        "rating": {
+        },
+        "starter_code": {
+        },
+        "par": {
+        },
+        "type": {
+        }
+      },
+      "filters": {
+        "id": {
+          "type": "integer_id",
+          "operators": [
+            "eq",
+            "not_eq",
+            "gt",
+            "gte",
+            "lt",
+            "lte"
+          ]
+        },
+        "creator_id": {
+          "type": "integer",
+          "operators": [
+            "eq",
+            "not_eq",
+            "gt",
+            "gte",
+            "lt",
+            "lte"
+          ]
+        },
+        "content": {
+          "type": "string",
+          "operators": [
+            "eq",
+            "not_eq",
+            "eql",
+            "not_eql",
+            "prefix",
+            "not_prefix",
+            "suffix",
+            "not_suffix",
+            "match",
+            "not_match"
+          ]
+        },
+        "rating": {
+          "type": "float",
+          "operators": [
+            "eq",
+            "not_eq",
+            "gt",
+            "gte",
+            "lt",
+            "lte"
+          ]
+        },
+        "starter_code": {
+          "type": "string",
+          "operators": [
+            "eq",
+            "not_eq",
+            "eql",
+            "not_eql",
+            "prefix",
+            "not_prefix",
+            "suffix",
+            "not_suffix",
+            "match",
+            "not_match"
+          ]
+        },
+        "par": {
+          "type": "integer",
+          "operators": [
+            "eq",
+            "not_eq",
+            "gt",
+            "gte",
+            "lt",
+            "lte"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "operators": [
+            "eq",
+            "not_eq",
+            "eql",
+            "not_eql",
+            "prefix",
+            "not_prefix",
+            "suffix",
+            "not_suffix",
+            "match",
+            "not_match"
+          ]
+        }
+      },
+      "relationships": {
+        "creator": {
+          "type": "belongs_to",
+          "description": null,
+          "resource": "UserResource"
+        },
+        "games": {
+          "type": "has_many",
+          "description": null,
+          "resource": "GameResource"
+        }
+      }
+    },
+    {
+      "name": "GameResource",
+      "type": "games",
+      "description": null,
+      "attributes": {
+        "id": {
+          "type": "integer_id",
+          "readable": true,
+          "writable": true,
+          "description": null
+        },
+        "winner_id": {
+          "type": "integer",
+          "readable": true,
+          "writable": true,
+          "description": null
+        },
+        "loser_id": {
+          "type": "integer",
+          "readable": true,
+          "writable": true,
+          "description": null
+        },
+        "time": {
+          "type": "integer",
+          "readable": true,
+          "writable": true,
+          "description": null
+        }
+      },
+      "extra_attributes": {
+      },
+      "sorts": {
+        "id": {
+        },
+        "winner_id": {
+        },
+        "loser_id": {
+        },
+        "time": {
+        }
+      },
+      "filters": {
+        "id": {
+          "type": "integer_id",
+          "operators": [
+            "eq",
+            "not_eq",
+            "gt",
+            "gte",
+            "lt",
+            "lte"
+          ]
+        },
+        "winner_id": {
+          "type": "integer",
+          "operators": [
+            "eq",
+            "not_eq",
+            "gt",
+            "gte",
+            "lt",
+            "lte"
+          ]
+        },
+        "loser_id": {
+          "type": "integer",
+          "operators": [
+            "eq",
+            "not_eq",
+            "gt",
+            "gte",
+            "lt",
+            "lte"
+          ]
+        },
+        "time": {
+          "type": "integer",
+          "operators": [
+            "eq",
+            "not_eq",
+            "gt",
+            "gte",
+            "lt",
+            "lte"
+          ]
+        }
+      },
+      "relationships": {
+        "winner": {
+          "type": "belongs_to",
+          "description": null,
+          "resource": "UserResource"
+        },
+        "loser": {
+          "type": "belongs_to",
+          "description": null,
+          "resource": "UserResource"
+        }
+      }
+    },
+    {
+      "name": "UserResource",
+      "type": "users",
+      "description": null,
+      "attributes": {
+        "id": {
+          "type": "integer_id",
+          "readable": true,
+          "writable": true,
+          "description": null
+        },
+        "email": {
+          "type": "string",
+          "readable": true,
+          "writable": true,
+          "description": null
+        },
+        "password": {
+          "type": "string",
+          "readable": true,
+          "writable": true,
+          "description": null
+        },
+        "username": {
+          "type": "string",
+          "readable": true,
+          "writable": true,
+          "description": null
+        }
+      },
+      "extra_attributes": {
+      },
+      "sorts": {
+        "id": {
+        },
+        "email": {
+        },
+        "password": {
+        },
+        "username": {
+        }
+      },
+      "filters": {
+        "id": {
+          "type": "integer_id",
+          "operators": [
+            "eq",
+            "not_eq",
+            "gt",
+            "gte",
+            "lt",
+            "lte"
+          ]
+        },
+        "email": {
+          "type": "string",
+          "operators": [
+            "eq",
+            "not_eq",
+            "eql",
+            "not_eql",
+            "prefix",
+            "not_prefix",
+            "suffix",
+            "not_suffix",
+            "match",
+            "not_match"
+          ]
+        },
+        "password": {
+          "type": "string",
+          "operators": [
+            "eq",
+            "not_eq",
+            "eql",
+            "not_eql",
+            "prefix",
+            "not_prefix",
+            "suffix",
+            "not_suffix",
+            "match",
+            "not_match"
+          ]
+        },
+        "username": {
+          "type": "string",
+          "operators": [
+            "eq",
+            "not_eq",
+            "eql",
+            "not_eql",
+            "prefix",
+            "not_prefix",
+            "suffix",
+            "not_suffix",
+            "match",
+            "not_match"
+          ]
+        }
+      },
+      "relationships": {
+        "challenges": {
+          "type": "has_many",
+          "description": null,
+          "resource": "ChallengeResource"
+        },
+        "games": {
+          "type": "has_many",
+          "description": null,
+          "resource": "GameResource"
+        }
+      }
+    }
+  ],
+  "endpoints": {
+    "/v1/challenges": {
+      "actions": {
+        "index": {
+          "resource": "ChallengeResource"
+        },
+        "show": {
+          "resource": "ChallengeResource"
+        },
+        "create": {
+          "resource": "ChallengeResource"
+        },
+        "update": {
+          "resource": "ChallengeResource"
+        },
+        "destroy": {
+          "resource": "ChallengeResource"
+        }
+      }
+    },
+    "/v1/games": {
+      "actions": {
+        "index": {
+          "resource": "GameResource"
+        },
+        "show": {
+          "resource": "GameResource"
+        },
+        "create": {
+          "resource": "GameResource"
+        },
+        "update": {
+          "resource": "GameResource"
+        },
+        "destroy": {
+          "resource": "GameResource"
+        }
+      }
+    },
+    "/v1/users": {
+      "actions": {
+        "index": {
+          "resource": "UserResource"
+        },
+        "show": {
+          "resource": "UserResource"
+        },
+        "create": {
+          "resource": "UserResource"
+        },
+        "update": {
+          "resource": "UserResource"
+        },
+        "destroy": {
+          "resource": "UserResource"
+        }
+      }
+    }
+  },
+  "types": {
+    "integer_id": {
+      "kind": "scalar",
+      "description": "Base Type. Query/persist as integer, render as string."
+    },
+    "uuid": {
+      "kind": "scalar",
+      "description": "Base Type. Like a normal string, but by default only eq/!eq and case-sensitive."
+    },
+    "string_enum": {
+      "kind": "scalar",
+      "description": "String enum type. Like a normal string, but only eq/!eq and case-sensitive. Limited to only the allowed values."
+    },
+    "integer_enum": {
+      "kind": "scalar",
+      "description": "Integer enum type. Like a normal integer, but only eq/!eq filters. Limited to only the allowed values."
+    },
+    "string": {
+      "kind": "scalar",
+      "description": "Base Type."
+    },
+    "integer": {
+      "kind": "scalar",
+      "description": "Base Type."
+    },
+    "big_decimal": {
+      "kind": "scalar",
+      "description": "Base Type."
+    },
+    "float": {
+      "kind": "scalar",
+      "description": "Base Type."
+    },
+    "boolean": {
+      "kind": "scalar",
+      "description": "Base Type."
+    },
+    "date": {
+      "kind": "scalar",
+      "description": "Base Type."
+    },
+    "datetime": {
+      "kind": "scalar",
+      "description": "Base Type."
+    },
+    "hash": {
+      "kind": "record",
+      "description": "Base Type."
+    },
+    "array": {
+      "kind": "array",
+      "description": "Base Type."
+    },
+    "array_of_integer_ids": {
+      "kind": "array",
+      "description": "Base Type."
+    },
+    "array_of_uuids": {
+      "kind": "array",
+      "description": "Base Type."
+    },
+    "array_of_string_enums": {
+      "kind": "array",
+      "description": "Base Type."
+    },
+    "array_of_integer_enums": {
+      "kind": "array",
+      "description": "Base Type."
+    },
+    "array_of_strings": {
+      "kind": "array",
+      "description": "Base Type."
+    },
+    "array_of_integers": {
+      "kind": "array",
+      "description": "Base Type."
+    },
+    "array_of_big_decimals": {
+      "kind": "array",
+      "description": "Base Type."
+    },
+    "array_of_floats": {
+      "kind": "array",
+      "description": "Base Type."
+    },
+    "array_of_dates": {
+      "kind": "array",
+      "description": "Base Type."
+    },
+    "array_of_datetimes": {
+      "kind": "array",
+      "description": "Base Type."
+    }
+  }
+}
