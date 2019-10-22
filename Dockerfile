@@ -1,4 +1,4 @@
-FROM ruby:2.6.3-slim
+FROM ruby:2.6.5-alpine
 
 RUN apt-get update && \
     apt-get install -qq -y --no-install-recommends \ 

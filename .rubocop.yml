@@ -1,4 +1,7 @@
-require: rubocop-rspec
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
 
 RSpec/MultipleExpectations:
   Enabled: false
@@ -8,9 +11,10 @@ RSpec/NestedGroups:
 AllCops:
   TargetRubyVersion: 2.6.3
   Exclude:
-    - 'bin/*'
-    - 'config/application.rb'
-    - 'vendor/**/*'
+    - bin/*
+    - config/application.rb
+    - db/**/*
+    - vendor/**/*
   DisplayCopNames: true
 Metrics/ClassLength:
   Max: 200
